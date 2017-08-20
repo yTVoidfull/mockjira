@@ -1,27 +1,14 @@
 package entities;
 
-import enums.Status;
 
-public class Sprint {
+public class Sprint extends PlannedEffort {
 
 
     private Project project;
-    private Status status;
 
     public Sprint(Project project) {
+        super();
         this.project = project;
-        status = Status.CLOSED;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void open() {
-        status = Status.OPEN;
-    }
-
-    public void close() {
-        status = Status.CLOSED;
-    }
 }

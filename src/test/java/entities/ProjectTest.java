@@ -46,18 +46,18 @@ public class ProjectTest {
     }
 
     @Test
-    public void aProjectCanBeOpened() throws Exception {
+    public void aProjectCanBeStarted() throws Exception {
         Project project = new Project("abcdef123");
-        project.open();
+        project.start();
         Assert.assertThat(project.getStatus(), is(Status.OPEN));
     }
 
     @Test
     public void aProjectCanBeClosed() throws Exception {
         Project project = new Project("abcdef123");
-        project.open();
+        project.start();
         Assert.assertThat(project.getStatus(), is(Status.OPEN));
-        project.close();
+        project.end();
         Assert.assertThat(project.getStatus(), is(Status.CLOSED));
     }
 

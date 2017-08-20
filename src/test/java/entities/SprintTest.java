@@ -25,7 +25,7 @@ public class SprintTest {
     public void aSprintCanBeOpened() throws Exception {
         Project project = new Project("abcdef123");
         Sprint sprint = new Sprint(project);
-        sprint.open();
+        sprint.start();
         Assert.assertThat(sprint.getStatus(), is(Status.OPEN));
     }
 
@@ -33,9 +33,9 @@ public class SprintTest {
     public void aSprintCanBeClosed() throws Exception {
         Project project = new Project("abcdef123");
         Sprint sprint = new Sprint(project);
-        sprint.open();
+        sprint.start();
         Assert.assertThat(sprint.getStatus(), is(Status.OPEN));
-        sprint.close();
+        sprint.end();
         Assert.assertThat(sprint.getStatus(), is(Status.CLOSED));
     }
 }

@@ -32,4 +32,5 @@ public class Issue {
     public void closed() {
         status = Status.CLOSED;
     }
+
 }

@@ -1,24 +1,22 @@
 package entities;
 
-import enums.Status;
 import exceptions.InvalidProjectIdentifierException;
 
-public class Project {
+public class Project extends PlannedEffort{
 
     private String id;
     private String name;
-    private Status status;
     private int duration;
 
     public Project(String id, String name) throws Exception {
+        super();
         setId(id);
         setName(name);
-        status = Status.CLOSED;
     }
 
     public Project(String id) throws Exception {
+        super();
         setId(id);
-        status = Status.CLOSED;
     }
 
     public String getId() {
@@ -44,18 +42,6 @@ public class Project {
         }
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void open() {
-        status = Status.OPEN;
-    }
-
-    public void close() {
-        status = Status.CLOSED;
-    }
-
     public void setDuration(int duration) {
         this.duration = duration;
     }
@@ -63,4 +49,5 @@ public class Project {
     public int getDuration() {
         return duration;
     }
+
 }
