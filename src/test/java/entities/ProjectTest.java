@@ -11,19 +11,19 @@ public class ProjectTest {
 
     @Test
     public void eachProjectHasAnIdentifier() throws Exception {
-        Project project = new Project("abcdef123", "Unique Project");
+        Project project = Project.createProjectWithIdAndName("abcdef123", "Unique Project");
         Assert.assertThat(project.getId(), is("abcdef123"));
     }
 
     @Test
     public void projectNameIsNotMandatory() throws Exception {
-        new Project("abcdef123");
+        Project.createProjectWithId("abcdef123");
     }
 
     @Test
     public void projectIdIsExactlyNineCHaractersInLength() throws Exception {
         try{
-            new Project("abcd12");
+            Project.createProjectWithId("abcd12");
             Assert.fail();
         }catch (InvalidProjectIdentifierException invalid){
         }
@@ -31,9 +31,9 @@ public class ProjectTest {
 
     @Test
     public void projectIdIsComposedOfSixLettersAndThreeDigits() throws Exception {
-        new Project("abcdef123");
+        Project.createProjectWithId("abcdef123");
         try {
-            new Project("abcdef12a");
+            Project.createProjectWithId("abcdef12a");
             Assert.fail();
         }catch (InvalidProjectIdentifierException invalid){
         }
@@ -41,20 +41,20 @@ public class ProjectTest {
 
     @Test
     public void aProjectHasStatusClosedByDefault() throws Exception {
-        Project project = new Project("abcdef123");
+        Project project = Project.createProjectWithId("abcdef123");
         Assert.assertThat(project.getStatus(), is(Status.CLOSED));
     }
 
     @Test
     public void aProjectCanBeStarted() throws Exception {
-        Project project = new Project("abcdef123");
+        Project project = Project.createProjectWithId("abcdef123");
         project.start();
         Assert.assertThat(project.getStatus(), is(Status.OPEN));
     }
 
     @Test
     public void aProjectCanBeClosed() throws Exception {
-        Project project = new Project("abcdef123");
+        Project project = Project.createProjectWithId("abcdef123");
         project.start();
         Assert.assertThat(project.getStatus(), is(Status.OPEN));
         project.end();
@@ -63,7 +63,7 @@ public class ProjectTest {
 
     @Test
     public void aProjectHasDuration() throws Exception {
-        Project project = new Project("abcdef123");
+        Project project = Project.createProjectWithId("abcdef123");
         project.setDuration(100);
         Assert.assertThat(project.getDuration(), is(100));
     }

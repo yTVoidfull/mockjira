@@ -10,29 +10,29 @@ public class SprintTest {
 
     @Test
     public void aSprintIsCreatedForAProject() throws Exception {
-        Project project = new Project("abcdef123");
-        Sprint sprint = new Sprint(project);
+        Project project = Project.createProjectWithId("abcdef123");
+        Sprint sprint = Sprint.createSprintFor(project);
     }
 
     @Test
     public void aSprintIsClosedByDefault() throws Exception {
-        Project project = new Project("abcdef123");
-        Sprint sprint = new Sprint(project);
+        Project project = Project.createProjectWithId("abcdef123");
+        Sprint sprint = Sprint.createSprintFor(project);
         Assert.assertThat(sprint.getStatus(), is(Status.CLOSED));
     }
 
     @Test
     public void aSprintCanBeOpened() throws Exception {
-        Project project = new Project("abcdef123");
-        Sprint sprint = new Sprint(project);
+        Project project = Project.createProjectWithId("abcdef123");
+        Sprint sprint = Sprint.createSprintFor(project);
         sprint.start();
         Assert.assertThat(sprint.getStatus(), is(Status.OPEN));
     }
 
     @Test
     public void aSprintCanBeClosed() throws Exception {
-        Project project = new Project("abcdef123");
-        Sprint sprint = new Sprint(project);
+        Project project = Project.createProjectWithId("abcdef123");
+        Sprint sprint = Sprint.createSprintFor(project);
         sprint.start();
         Assert.assertThat(sprint.getStatus(), is(Status.OPEN));
         sprint.end();

@@ -8,15 +8,23 @@ public class Project extends PlannedEffort{
     private String name;
     private int duration;
 
-    public Project(String id, String name) throws Exception {
+    private Project(String id, String name) throws Exception {
         super();
         setId(id);
         setName(name);
     }
 
-    public Project(String id) throws Exception {
+    private Project(String id) throws Exception {
         super();
         setId(id);
+    }
+
+    public static Project createProjectWithId(String id) throws Exception {
+        return new Project(id);
+    }
+
+    public static Project createProjectWithIdAndName(String id, String name) throws Exception {
+        return new Project(id, name);
     }
 
     public String getId() {
