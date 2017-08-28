@@ -10,15 +10,11 @@ public class Issue {
     private String id;
     private Status status;
 
-    private Issue(Project project) {
+    Issue(Project project) {
         this.project = project;
         id = project.getName() + " " + lastIssueId;
         lastIssueId ++;
         status = Status.CLOSED;
-    }
-
-    public static Issue createIssueFor(Project p){
-        return new Issue(p);
     }
 
     public String getId() {

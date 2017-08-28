@@ -2,11 +2,16 @@ package entities;
 
 import exceptions.InvalidProjectIdentifierException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Project extends PlannedEffort{
 
     private String id;
     private String name;
     private int duration;
+    private List<Sprint> sprints = new ArrayList<Sprint>();
+    private List<Issue> issues = new ArrayList<Issue>();
 
     private Project(String id, String name) throws Exception {
         super();
@@ -25,6 +30,18 @@ public class Project extends PlannedEffort{
 
     public static Project createProjectWithIdAndName(String id, String name) throws Exception {
         return new Project(id, name);
+    }
+
+    public Sprint createSprint(){
+        Sprint s = new Sprint(this);
+        sprints.add(s);
+        return s;
+    }
+
+    public Issue createIssue(){
+        Issue i = new Issue(this);
+        issues.add(i);
+        return i;
     }
 
     public String getId() {
@@ -58,4 +75,11 @@ public class Project extends PlannedEffort{
         return duration;
     }
 
+    public List<Issue> getIssues() {
+        return issues;
+    }
+
+    public List<Sprint> getSprints() {
+        return sprints;
+    }
 }

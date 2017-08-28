@@ -67,4 +67,13 @@ public class ProjectTest {
         project.setDuration(100);
         Assert.assertThat(project.getDuration(), is(100));
     }
+
+    @Test
+    public void IssuesAndSprintsWillBeSavedWithinAProject() throws Exception {
+        Project project = Project.createProjectWithId("abcdef123");
+        project.createIssue();
+        project.createSprint();
+        Assert.assertThat(project.getIssues().size(), is(1));
+        Assert.assertThat(project.getSprints().size(), is(1));
+    }
 }
