@@ -3,34 +3,31 @@ package entities;
 import com.sun.xml.internal.ws.api.message.Packet;
 import enums.Status;
 
-public class Issue {
+public class Issue extends UnplannedEffort {
 
-    private Project project;
+    private final String NAME_PREFIX = "Issue ";
+
     private static int lastIssueId = 1;
-    private String id;
-    private Status status;
+    private int id;
+    private String name;
+
 
     Issue(Project project) {
-        this.project = project;
-        id = project.getName() + " " + lastIssueId;
+        super(project);
+        id = lastIssueId;
+        name = NAME_PREFIX + lastIssueId;
         lastIssueId ++;
-        status = Status.CLOSED;
     }
 
-    public String getId() {
+    public static int getLastIssueId() {
+        return lastIssueId;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public Status getStatus() {
-        return status;
+    public String getName() {
+        return name;
     }
-
-    public void open() {
-        status = Status.OPEN;
-    }
-
-    public void closed() {
-        status = Status.CLOSED;
-    }
-
 }

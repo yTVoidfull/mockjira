@@ -2,24 +2,19 @@ package entities;
 
 import enums.Status;
 
-public abstract class PlannedEffort {
+public abstract class PlannedEffort extends Effort{
 
-    private Status status;
+    private int hoursEstimation;
 
-    public PlannedEffort(){
-        status = Status.CLOSED;
+    public PlannedEffort(Project project) {
+        super(project);
     }
 
-    public void start() {
-        status = Status.OPEN;
+    public int getHoursEstimation() {
+        return hoursEstimation;
     }
 
-    public void end() {
-        status = Status.CLOSED;
+    public void setHoursEstimation(int hoursEstimation) {
+        this.hoursEstimation = hoursEstimation;
     }
-
-    public Status getStatus() {
-        return status;
-    }
-
 }

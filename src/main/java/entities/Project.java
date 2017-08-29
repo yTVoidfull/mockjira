@@ -5,7 +5,7 @@ import exceptions.InvalidProjectIdentifierException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project extends PlannedEffort{
+public class Project extends Effort {
 
     private String id;
     private String name;

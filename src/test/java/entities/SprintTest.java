@@ -38,4 +38,11 @@ public class SprintTest {
         sprint.end();
         Assert.assertThat(sprint.getStatus(), is(Status.CLOSED));
     }
+
+    @Test
+    public void eachSprintHasAListOfTasks() throws Exception {
+        Project project = Project.createProjectWithId("abcdef123");
+        Sprint sprint = project.createSprint();
+        sprint.getTasks();
+    }
 }
