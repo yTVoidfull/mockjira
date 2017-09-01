@@ -12,6 +12,7 @@ public class Project extends Effort {
     private int duration;
     private List<Sprint> sprints = new ArrayList<Sprint>();
     private List<Issue> issues = new ArrayList<Issue>();
+    private List<Task> tasks = new ArrayList<Task>();
 
     private Project(String id, String name) throws Exception {
         super();
@@ -42,6 +43,12 @@ public class Project extends Effort {
         Issue i = new Issue(this);
         issues.add(i);
         return i;
+    }
+
+    public Task createTask(Project project) {
+        Task t = new Task(this);
+        tasks.add(t);
+        return t;
     }
 
     public String getId() {
@@ -81,5 +88,9 @@ public class Project extends Effort {
 
     public List<Sprint> getSprints() {
         return sprints;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
     }
 }

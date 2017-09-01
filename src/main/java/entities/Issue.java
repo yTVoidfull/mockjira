@@ -1,9 +1,6 @@
 package entities;
 
-import com.sun.xml.internal.ws.api.message.Packet;
-import enums.Status;
-
-public class Issue extends UnplannedEffort {
+public class Issue extends Effort {
 
     private final String NAME_PREFIX = "Issue ";
 

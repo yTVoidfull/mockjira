@@ -2,7 +2,7 @@ package entities;
 
 import enums.Status;
 
-public class Task extends PlannedEffort {
+public class Task extends Effort {
 
     private final String NAME_PREFIX = "Task ";
 
@@ -23,4 +23,7 @@ public class Task extends PlannedEffort {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
 }

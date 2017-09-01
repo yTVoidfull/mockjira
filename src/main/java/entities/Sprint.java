@@ -3,7 +3,7 @@ package entities;
 
 import java.util.List;
 
-public class Sprint extends PlannedEffort {
+public class Sprint extends Effort {
 
     private List<Task> tasks;
 
