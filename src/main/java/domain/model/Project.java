@@ -8,8 +8,9 @@ public class Project {
     private String code;
 
     public Project(String code) {
-        if(code == null || code.length() != 9) {
-            throw new IllegalArgumentException("Code must be 9 characters");
+        if(code == null ||
+                !code.matches("[A-Za-z]{6}\\d{3}")){
+            throw new IllegalArgumentException("Code must be 6 letters and 3 digits");
         }
         this.code = code;
     }
