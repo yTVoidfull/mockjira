@@ -1,8 +1,6 @@
 package domain.model;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -11,45 +9,33 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class ProjectTest {
 
-
     @Test
-    public void canOpenAProject() throws Exception {
+    public void canOpen() throws Exception {
         Project p = new Project("codeAB123");
-        assertThat(p.getCode()).isEqualTo("codeAB123");
+        assertThat(p.getCode().toString()).isEqualTo("codeAB123");
         assertThat(p.isOpen()).isEqualTo(true);
     }
 
     @Test
-    public void exceptionThrownWhenCodeIsNull() throws Exception {
-        Throwable codeNullException = catchThrowable(() -> new Project(null));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
+    public void canBeClosed() throws Exception {
+        Project p = new Project("codeAB123");
+        p.close();
+        assertThat(p.isOpen()).isEqualTo(false);
     }
 
     @Test
-    public void exceptionThrownWhenCodeIsLongerThanNineCharacters() throws Exception {
-        String tenCharacterId = "codeAB1234";
-        Throwable codeNullException = catchThrowable(() -> new Project(tenCharacterId));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
+    public void canOpenAnIssue() throws Exception {
+        Project p = new Project("codeAB123");
+        Issue i = p.openIssue();
+        assertThat(i.isOpen()).isEqualTo(true);
     }
 
     @Test
-    public void exceptionThrownWhenCodeIsShorterThanNineCharacters() throws Exception {
-        String eightCharacterId = "code1234";
-        Throwable codeNullException = catchThrowable(() -> new Project(eightCharacterId));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
+    public void exceptionThrownIfOpeningAnIssueWhenClosed() throws Exception {
+        Project p = new Project("codeAB123");
+        p.close();
+        Throwable exceptionWhenOpeningIssueFromClosedProject = catchThrowable(p::openIssue);
+        assertThat(exceptionWhenOpeningIssueFromClosedProject.getMessage()).isEqualTo("Issues must be created only in ongoing projects");
     }
 
-    @Test
-    public void exceptionThrownWhenCodeHasLeadingFiveLettersAndFourDigits() throws Exception {
-        String leadingFiveLetters = "codea1234";
-        Throwable codeNullException = catchThrowable(() -> new Project(leadingFiveLetters));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
-    }
-
-    @Test
-    public void exceptionThrownWhenCodeHasLeadingSevenLettersAndTwoDigits() throws Exception {
-        String leadingSevenLetters = "codeabs12";
-        Throwable codeNullException = catchThrowable(() -> new Project(leadingSevenLetters));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
-    }
 }

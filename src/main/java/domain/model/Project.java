@@ -3,23 +3,25 @@ package domain.model;
 /**
  * Created by alplesca on 9/4/2017.
  */
-public class Project {
+public class Project extends Effort{
 
-    private String code;
+    private ProjectCode code;
+
+    private IssueCounter issueCounter = new IssueCounter();
 
     public Project(String code) {
-        if(code == null ||
-                !code.matches("[A-Za-z]{6}\\d{3}")){
-            throw new IllegalArgumentException("Code must be 6 letters and 3 digits");
-        }
-        this.code = code;
+        this.code = new ProjectCode(code);
     }
 
-    public String getCode() {
+    public ProjectCode getCode() {
         return code;
     }
 
-    public boolean isOpen() {
-        return true;
+    public Issue openIssue() {
+        if(!isOpen()) {
+            throw new IllegalStateException("Issues must be created only in ongoing projects");
+        }
+        return Issue.open(code, issueCounter.getANewId());
     }
+
 }
