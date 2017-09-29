@@ -1,12 +1,7 @@
 package domain.model;
 
-/**
- * Created by alplesca on 9/11/2017.
- */
 public class Issue extends Effort {
-
     private final IssueId issueId;
-
 
     private Issue(IssueId issueId) {
         this.issueId = issueId;

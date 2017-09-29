@@ -1,10 +1,6 @@
 package domain.model;
 
-/**
- * Created by alplesca on 9/28/2017.
- */
 public class ProjectCode {
-
     private String code;
 
     public ProjectCode(String code) {
@@ -18,6 +14,10 @@ public class ProjectCode {
     @Override
     public String toString(){
         return code;
+    }
+
+    public boolean equals(Object other){
+        return this.code.equals(other.toString());
     }
 
 }

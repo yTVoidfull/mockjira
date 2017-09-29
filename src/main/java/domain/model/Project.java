@@ -1,16 +1,11 @@
 package domain.model;
 
-/**
- * Created by alplesca on 9/4/2017.
- */
 public class Project extends Effort{
-
     private ProjectCode code;
-
     private IssueCounter issueCounter = new IssueCounter();
 
-    public Project(String code) {
-        this.code = new ProjectCode(code);
+    public Project(ProjectCode code) {
+        this.code = code;
     }
 
     public ProjectCode getCode() {

@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Created by alplesca on 9/28/2017.
- */
+
 public class IssueCounterTest {
 
     @Test

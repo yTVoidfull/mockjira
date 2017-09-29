@@ -1,9 +1,7 @@
 package domain.model;
 
 public class IssueId {
-
     private static final String FOMAT = "%s-%d";
-
     private final String id;
 
     private IssueId(String id) {

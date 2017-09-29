@@ -5,9 +5,6 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
-/**
- * Created by alplesca on 9/11/2017.
- */
 public class IssueTest {
 
     @Test
