@@ -1,5 +1,7 @@
 package domain.model;
 
+import java.util.Objects;
+
 public class ProjectCode {
     private String code;
 
@@ -16,8 +18,16 @@ public class ProjectCode {
         return code;
     }
 
-    public boolean equals(Object other){
-        return this.code.equals(other.toString());
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProjectCode that = (ProjectCode) o;
+        return Objects.equals(code, that.code);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(code);
+    }
 }

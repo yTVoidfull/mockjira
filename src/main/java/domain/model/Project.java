@@ -1,8 +1,10 @@
 package domain.model;
 
-public class Project extends Effort{
+import java.util.Objects;
+
+public class Project {
     private ProjectCode code;
-    private IssueCounter issueCounter = new IssueCounter();
+    private boolean isOpen = true;
 
     public Project(ProjectCode code) {
         this.code = code;
@@ -12,11 +14,25 @@ public class Project extends Effort{
         return code;
     }
 
-    public Issue openIssue() {
-        if(!isOpen()) {
-            throw new IllegalStateException("Issues must be created only in ongoing projects");
-        }
-        return Issue.open(code, issueCounter.getANewId());
+    public void close() {
+        isOpen = false;
     }
 
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Project)) return false;
+        Project project = (Project) o;
+        return isOpen == project.isOpen &&
+            Objects.equals(code, project.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, isOpen);
+    }
 }

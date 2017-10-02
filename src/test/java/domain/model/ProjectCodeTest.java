@@ -47,11 +47,5 @@ public class ProjectCodeTest {
         ProjectCode projectCode1 = new ProjectCode("abcdef123");
         assertThat(projectCode).isEqualTo(projectCode1);
     }
-
-    @Test
-    public void aProjectCodeIsEqualToAString() throws Exception {
-        ProjectCode projectCode = new ProjectCode("abcdef123");
-        String projectCodeString = "abcdef123";
-        assertThat(projectCode).isEqualTo(projectCodeString);
-    }
+    
 }
