@@ -2,6 +2,7 @@ package application;
 
 import domain.model.Project;
 import domain.model.ProjectCode;
+import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ public class ProjectServiceTest {
     public void canCreateANewProject() throws Exception {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         Project p = pService.create(pCode);
-        assertThat(p.getCode()).isEqualTo(pCode);
+        Assertions.assertThat(p.getCode()).isEqualTo(pCode);
     }
 
     @Test
@@ -33,14 +34,14 @@ public class ProjectServiceTest {
         ProjectCode pCode1 = new ProjectCode("abcdBD123");
         pService.create(pCode);
         Project p1 = pService.create(pCode1);
-        assertThat(pService.get(pCode1)).isEqualTo(Optional.of(p1));
+        Assertions.assertThat(pService.get(pCode1)).isEqualTo(Optional.of(p1));
     }
 
     @Test
     public void nullIsReturnedWhenThereIsNoSuchProject() throws Exception {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         pService.create(pCode);
-        assertThat(pService.get(new ProjectCode("abcdef123"))).isEqualTo(Optional.empty());
+        Assertions.assertThat(pService.get(new ProjectCode("abcdef123"))).isEqualTo(Optional.empty());
     }
 
     @Test
@@ -48,7 +49,7 @@ public class ProjectServiceTest {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         pService.create(pCode);
         pService.close(pCode);
-        assertThat(((Project)pService.get(pCode).get()).isOpen()).isEqualTo(false);
+        Assertions.assertThat(((Project)pService.get(pCode).get()).isOpen()).isEqualTo(false);
     }
 
     @Test

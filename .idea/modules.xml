@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/issuetracking/issuetracking.iml" filepath="$PROJECT_DIR$/issuetracking/issuetracking.iml" />
       <module fileurl="file://$PROJECT_DIR$/mockjira.iml" filepath="$PROJECT_DIR$/mockjira.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projectmanagement/projectmanagement.iml" filepath="$PROJECT_DIR$/projectmanagement/projectmanagement.iml" />
     </modules>
   </component>
 </project>
