@@ -21,8 +21,8 @@
         </plugins>
     </build>
     <modules>
-        <module>projectmanagement</module>
-        <module>issuetracking</module>
+        <module>project-management</module>
+        <module>issue-tracking</module>
     </modules>
 
     <dependencies>
