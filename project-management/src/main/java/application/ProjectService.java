@@ -3,6 +3,7 @@ package application;
 import domain.model.InMemoryProjectRepository;
 import domain.model.Project;
 import domain.model.ProjectCode;
+import domain.model.ProjectRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,11 @@ import java.util.Optional;
 
 public class ProjectService {
 
-  private InMemoryProjectRepository repo = new InMemoryProjectRepository();
+  private ProjectRepository repo;
+
+  public ProjectService(ProjectRepository repo) {
+    this.repo = repo;
+  }
 
   public Project create(ProjectCode projectCode) {
     Project p = new Project(projectCode);

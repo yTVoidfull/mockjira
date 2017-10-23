@@ -1,7 +1,9 @@
 package application;
 
+import domain.model.InMemoryProjectRepository;
 import domain.model.Project;
 import domain.model.ProjectCode;
+import domain.model.ProjectRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +19,8 @@ public class ProjectServiceTest {
 
     @Before
     public void aServiceWillBeAvailableForAClient(){
-        pService = new ProjectService();
+        ProjectRepository repo = new InMemoryProjectRepository();
+        pService = new ProjectService(repo);
 
     }
 

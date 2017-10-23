@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/issue-tracking/issue-tracking.iml" filepath="$PROJECT_DIR$/issue-tracking/issue-tracking.iml" />
       <module fileurl="file://$PROJECT_DIR$/mockjira.iml" filepath="$PROJECT_DIR$/mockjira.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-management/project-management.iml" filepath="$PROJECT_DIR$/project-management/project-management.iml" />
+      <module fileurl="file://$PROJECT_DIR$/user-access/user-access.iml" filepath="$PROJECT_DIR$/user-access/user-access.iml" />
     </modules>
   </component>
 </project>

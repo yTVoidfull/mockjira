@@ -23,6 +23,7 @@
     <modules>
         <module>project-management</module>
         <module>issue-tracking</module>
+        <module>useraccess</module>
     </modules>
 
     <dependencies>

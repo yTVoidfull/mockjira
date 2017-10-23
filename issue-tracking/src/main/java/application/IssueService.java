@@ -1,27 +1,22 @@
 package application;
 
-import domain.model.*;
-
-import java.util.Optional;
+import domain.model.backlog.*;
 
 public class IssueService {
-    private ProjectRepository repo;
-    private IssueCounter issueCounter;
 
-    public IssueService(IssueCounter issueCounter, ProjectRepository repo) {
-        this.repo = repo;
-        this.issueCounter = issueCounter;
+    private ProjectRepository projectRepository;
+    private IssueRepository issueRepository;
+
+    public IssueService(ProjectRepository projectRepository, IssueRepository issueRepository) {
+        this.projectRepository = projectRepository;
+        this.issueRepository = issueRepository;
     }
 
     public Issue openFor(ProjectCode projectCode) {
-        Optional<Project> optional = repo.get(projectCode);
-        if(optional.isPresent()){
-            Project p = optional.get();
-            if(p.isOpen()){
-                return Issue.openFor(projectCode, issueCounter.getANewId(projectCode));
-            }
-            throw new IllegalStateException("Issues must be created only for ongoing projects");
-        }
-        throw new IllegalStateException("Issues must be created for existing projects");
+        Issue issue = projectRepository.get(projectCode)
+            .map(OpenProject::open)
+            .orElseThrow(() -> new IllegalStateException("Issues must be created for existing projects"));
+        issueRepository.add(issue);
+        return issue;
     }
 }
