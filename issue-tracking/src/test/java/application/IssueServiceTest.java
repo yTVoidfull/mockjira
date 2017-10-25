@@ -1,6 +1,9 @@
 package application;
 
 import domain.model.backlog.*;
+import domain.model.project.OpenProject;
+import domain.model.project.ProjectCode;
+import domain.model.project.ProjectRepository;
 import infrastructure.persistence.InMemoryIssueRepository;
 import org.junit.Before;
 import org.junit.Test;

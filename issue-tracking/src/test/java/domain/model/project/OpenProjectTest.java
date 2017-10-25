@@ -1,5 +1,8 @@
-package domain.model.backlog;
+package domain.model.project;
 
+import domain.model.backlog.IssueCounter;
+import domain.model.project.OpenProject;
+import domain.model.project.ProjectCode;
 import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

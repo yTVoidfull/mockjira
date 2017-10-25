@@ -1,5 +1,7 @@
 package domain.model.backlog;
 
+import domain.model.project.ProjectCode;
+
 import java.util.Objects;
 
 public class IssueId {

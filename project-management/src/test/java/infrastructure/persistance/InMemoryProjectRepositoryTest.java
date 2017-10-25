@@ -1,5 +1,7 @@
-package domain.model;
+package infrastructure.persistance;
 
+import domain.model.Project;
+import domain.model.ProjectCode;
 import org.junit.Before;
 import org.junit.Test;
 

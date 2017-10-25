@@ -1,4 +1,8 @@
-package domain.model;
+package infrastructure.persistance;
+
+import domain.model.Project;
+import domain.model.ProjectCode;
+import domain.model.ProjectRepository;
 
 import java.util.HashSet;
 import java.util.Optional;

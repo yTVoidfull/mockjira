@@ -1,5 +1,7 @@
 package domain.model.backlog;
 
+import domain.model.project.ProjectCode;
+
 public class Issue {
     private final IssueId issueId;
     private boolean isOpen = true;

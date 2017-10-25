@@ -1,4 +1,7 @@
-package domain.model.backlog;
+package domain.model.project;
+
+import domain.model.project.OpenProject;
+import domain.model.project.ProjectCode;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -23,12 +26,9 @@ public class ProjectRepository {
   }
 
   public Optional<OpenProject> get(ProjectCode code) {
-    for (OpenProject p : projects) {
-      if (p.getCode().equals(code)) {
-        return Optional.of(p);
-      }
-    }
-    return Optional.empty();
+    return projects.stream()
+        .filter(project -> project.getCode().equals(code))
+        .findFirst();
   }
 
   public boolean contains(OpenProject project) {

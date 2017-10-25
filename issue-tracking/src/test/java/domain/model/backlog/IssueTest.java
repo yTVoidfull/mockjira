@@ -1,6 +1,6 @@
 package domain.model.backlog;
 
-import domain.model.backlog.Issue;
+import domain.model.project.ProjectCode;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

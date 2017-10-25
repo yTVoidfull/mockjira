@@ -1,5 +1,6 @@
-package domain.model.backlog;
+package domain.model.project;
 
+import domain.model.project.ProjectCode;
 import org.junit.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

@@ -1,4 +1,7 @@
-package domain.model.backlog;
+package domain.model.project;
+
+import domain.model.backlog.Issue;
+import domain.model.backlog.IssueCounter;
 
 public class OpenProject {
 

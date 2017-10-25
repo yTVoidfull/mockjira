@@ -1,10 +1,9 @@
-package infrastructure;
+package infrastructure.persistence;
 
 import domain.model.backlog.Issue;
 import domain.model.backlog.IssueId;
 import domain.model.backlog.IssueRepository;
-import domain.model.backlog.ProjectCode;
-import infrastructure.persistence.InMemoryIssueRepository;
+import domain.model.project.ProjectCode;
 import org.junit.Before;
 import org.junit.Test;
 

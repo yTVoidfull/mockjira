@@ -1,12 +1,9 @@
 package application;
 
-import domain.model.InMemoryProjectRepository;
 import domain.model.Project;
 import domain.model.ProjectCode;
 import domain.model.ProjectRepository;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class ProjectService {

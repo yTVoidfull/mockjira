@@ -1,4 +1,4 @@
-package domain.model.backlog;
+package domain.model.project;
 
 public class ProjectCode {
 
