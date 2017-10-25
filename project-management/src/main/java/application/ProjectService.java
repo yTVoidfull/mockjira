@@ -1,8 +1,11 @@
 package application;
 
+import domain.model.backlog.Backlog;
+import domain.model.issue.IssueCounter;
 import domain.model.Project;
 import domain.model.ProjectCode;
 import domain.model.ProjectRepository;
+import domain.model.sprint.SprintCounter;
 
 import java.util.Optional;
 
@@ -15,7 +18,7 @@ public class ProjectService {
   }
 
   public Project create(ProjectCode projectCode) {
-    Project p = new Project(projectCode);
+    Project p = new Project(projectCode, new Backlog(), new IssueCounter(), new SprintCounter());
     repo.add(p);
     return p;
   }

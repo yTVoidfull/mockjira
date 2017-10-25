@@ -1,8 +1,5 @@
 package domain.model.project;
 
-import domain.model.project.OpenProject;
-import domain.model.project.ProjectCode;
-
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;

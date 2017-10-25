@@ -1,4 +1,4 @@
-package infrastructure.persistance;
+package infrastructure.persistence;
 
 import domain.model.Project;
 import domain.model.ProjectCode;

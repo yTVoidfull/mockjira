@@ -1,9 +1,6 @@
 package domain.model.project;
 
 import domain.model.backlog.IssueCounter;
-import domain.model.project.OpenProject;
-import domain.model.project.ProjectCode;
-import domain.model.project.ProjectRepository;
 import org.junit.Before;
 import org.junit.Test;
 

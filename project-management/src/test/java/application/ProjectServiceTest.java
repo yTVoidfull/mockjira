@@ -1,6 +1,6 @@
 package application;
 
-import infrastructure.persistance.InMemoryProjectRepository;
+import infrastructure.persistence.InMemoryProjectRepository;
 import domain.model.Project;
 import domain.model.ProjectCode;
 import domain.model.ProjectRepository;

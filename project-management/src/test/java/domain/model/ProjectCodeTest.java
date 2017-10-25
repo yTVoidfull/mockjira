@@ -1,5 +1,8 @@
 package domain.model;
 
+import domain.model.backlog.Backlog;
+import domain.model.issue.IssueCounter;
+import domain.model.sprint.SprintCounter;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -16,7 +19,7 @@ public class ProjectCodeTest {
     @Test
     public void exceptionThrownWhenCodeIsLongerThanNineCharacters() throws Exception {
         String tenCharacterId = "codeAB1234";
-        Throwable codeNullException = catchThrowable(() -> new Project(new ProjectCode(tenCharacterId)));
+        Throwable codeNullException = catchThrowable(() -> new Project(new ProjectCode(tenCharacterId), new Backlog(), new IssueCounter(), new SprintCounter()));
         assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
     }
 

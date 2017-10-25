@@ -10,6 +10,7 @@
         <module name="issuetracking" />
         <module name="project-management" />
         <module name="projectmanagement" />
+        <module name="user-access" />
         <module name="useraccess" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="mockjira" target="1.8" />
       <module name="project-management" target="1.8" />
       <module name="projectmanagement" target="1.8" />
+      <module name="user-access" target="1.8" />
       <module name="useraccess" target="1.8" />
     </bytecodeTargetLevel>
   </component>
