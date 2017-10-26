@@ -4,6 +4,7 @@ import project.management.domain.model.issue.Issue;
 import project.management.domain.model.issue.IssueId;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -30,4 +31,18 @@ public class Sprint {
   public static Sprint of(SprintId id) {
     return new Sprint(id);
   }
+
+  public SprintId getId() {
+    return id;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Sprint)) return false;
+    Sprint sprint = (Sprint) o;
+    return Objects.equals(sprintIssueSet, sprint.sprintIssueSet) &&
+        Objects.equals(id, sprint.id);
+  }
+
 }
