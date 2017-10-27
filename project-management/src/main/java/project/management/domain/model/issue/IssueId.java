@@ -5,6 +5,8 @@ import project.management.domain.model.ProjectCode;
 
 import java.util.Objects;
 
+import static commons.InputAssertion.assertNotNull;
+
 public class IssueId {
     private static final String FOMAT = "%s-%d";
     private final String id;
@@ -14,6 +16,7 @@ public class IssueId {
     }
 
     public static IssueId of(ProjectCode projectCode, int id) {
+        assertNotNull(projectCode, "Project code must not be null");
         return new IssueId(String.format(FOMAT, projectCode, id));
     }
 

@@ -18,7 +18,6 @@ public class Backlog {
     this.sprintRepository = sprintRepository;
   }
 
-
   public void add(Issue i) {
     issueRepository.add(i);
   }

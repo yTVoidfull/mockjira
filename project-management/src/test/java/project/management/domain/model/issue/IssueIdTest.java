@@ -5,6 +5,7 @@ import org.junit.Test;
 import project.management.domain.model.ProjectCode;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 
 public class IssueIdTest {
@@ -28,5 +29,11 @@ public class IssueIdTest {
         IssueId id2 = IssueId.of(projectCode, 1);
         assertThat(id1).isEqualTo(id2);
         assertThat(id1.hashCode()).isEqualTo(id2.hashCode());
+    }
+
+    @Test
+    public void exceptionThrownWhenProjectCodeIsNull() throws Exception {
+        Throwable throwable = catchThrowable(() -> IssueId.of(null, 1));
+        assertThat(throwable).hasMessage("Project code must not be null");
     }
 }

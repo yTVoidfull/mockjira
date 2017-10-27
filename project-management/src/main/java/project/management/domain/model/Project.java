@@ -8,6 +8,8 @@ import project.management.domain.model.sprint.SprintCounter;
 
 import java.util.Objects;
 
+import static commons.InputAssertion.assertNotNull;
+
 public class Project {
     private final String ISSUE_ID_FORMAT = "%s-%s";
 
@@ -18,6 +20,10 @@ public class Project {
     private final Backlog backlog;
 
     public Project(ProjectCode code, Backlog backlog, IssueCounter issueCounter, SprintCounter sprintCounter) {
+        assertNotNull(code, "Code must not be null");
+        assertNotNull(backlog, "Backlog must not be null");
+        assertNotNull(issueCounter, "Issue counter must not be null");
+        assertNotNull(sprintCounter, "Sprint counter must not be null");
         this.code = code;
         this.backlog = backlog;
         this.issueCounter = issueCounter;

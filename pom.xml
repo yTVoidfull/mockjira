@@ -24,6 +24,7 @@
         <module>project-management</module>
         <module>issue-tracking</module>
         <module>user-access</module>
+        <module>common</module>
     </modules>
 
     <dependencies>

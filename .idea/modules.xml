@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/mockjira.iml" filepath="$PROJECT_DIR$/mockjira.iml" />
       <module fileurl="file://$PROJECT_DIR$/project-management/project-management.iml" filepath="$PROJECT_DIR$/project-management/project-management.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-access/user-access.iml" filepath="$PROJECT_DIR$/user-access/user-access.iml" />

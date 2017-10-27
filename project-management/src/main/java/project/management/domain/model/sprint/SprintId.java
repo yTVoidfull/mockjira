@@ -4,6 +4,8 @@ import project.management.domain.model.ProjectCode;
 
 import java.util.Objects;
 
+import static commons.InputAssertion.assertNotNull;
+
 public class SprintId {
   private final String SPRINT_ID_FOMAT = "%s-s%d";
 
@@ -11,6 +13,7 @@ public class SprintId {
   private int id;
 
   public SprintId(ProjectCode projectCode, int id) {
+    assertNotNull(projectCode, "Project code must not be null");
     this.projectCode = projectCode;
     this.id = id;
   }

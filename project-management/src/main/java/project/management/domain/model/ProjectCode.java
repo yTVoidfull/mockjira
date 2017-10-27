@@ -2,14 +2,15 @@ package project.management.domain.model;
 
 import java.util.Objects;
 
+import static commons.InputAssertion.assertNotNull;
+import static commons.InputAssertion.assertStringMatchesPattern;
+
 public class ProjectCode {
     private String code;
 
     public ProjectCode(String code) {
-        if(code == null ||
-                !code.matches("[A-Za-z]{6}\\d{3}")){
-            throw new IllegalArgumentException("Code must be 6 letters and 3 digits");
-        }
+        assertNotNull(code, "Code must not be null");
+        assertStringMatchesPattern(code, "[A-Za-z]{6}\\d{3}", "Code must be 6 letters and 3 digits");
         this.code = code;
     }
 

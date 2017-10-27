@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="common" />
         <module name="issuetracking" />
         <module name="project-management" />
         <module name="projectmanagement" />
@@ -14,6 +15,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
       <module name="issue-tracking" target="1.8" />
       <module name="issuetracking" target="1.8" />
       <module name="mockjira" target="1.8" />

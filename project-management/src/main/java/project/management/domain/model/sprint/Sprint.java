@@ -8,12 +8,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
+import static commons.InputAssertion.assertNotNull;
+
 public class Sprint {
 
   private Set<Issue> sprintIssueSet;
   private final SprintId id;
 
   private Sprint(SprintId id) {
+    assertNotNull(id, "Sprint id must not be null");
     this.id = id;
     sprintIssueSet = new HashSet<>();
   }

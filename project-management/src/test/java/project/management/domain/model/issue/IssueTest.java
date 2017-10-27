@@ -6,6 +6,7 @@ import project.management.domain.model.ProjectCode;
 import project.management.domain.model.issue.Issue;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 public class IssueTest {
 
@@ -27,5 +28,11 @@ public class IssueTest {
     Issue i = Issue.of(IssueId.of(projectCode, 1));
     i.close();
     assertThat(i.isOpen()).isEqualTo(false);
+  }
+
+  @Test
+  public void exceptionThrownWhenIssueIdIsNull() throws Exception {
+    Throwable throwable = catchThrowable(() -> Issue.of(null));
+    assertThat(throwable).hasMessage("Issue id must not be null");
   }
 }

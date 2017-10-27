@@ -29,7 +29,7 @@ public class ProjectCodeTest {
     @Test
     public void exceptionThrownWhenCodeIsNull() throws Exception {
         Throwable codeNullException = catchThrowable(() -> new ProjectCode(null));
-        assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
+        assertThat(codeNullException).hasMessage("Code must not be null");
     }
 
     @Test

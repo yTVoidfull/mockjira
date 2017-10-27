@@ -2,6 +2,8 @@ package project.management.domain.model.issue;
 
 import java.util.Objects;
 
+import static commons.InputAssertion.assertNotNull;
+
 public class Issue {
 
   private IssueId id;
@@ -13,6 +15,7 @@ public class Issue {
   }
 
   public static Issue of(IssueId id){
+    assertNotNull(id, "Issue id must not be null");
     return new Issue(id);
   }
 
