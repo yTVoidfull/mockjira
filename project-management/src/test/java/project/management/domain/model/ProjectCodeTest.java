@@ -3,6 +3,7 @@ package project.management.domain.model;
 import project.management.domain.model.Project;
 import project.management.domain.model.ProjectCode;
 import project.management.domain.model.backlog.Backlog;
+import project.management.domain.model.backlog.BacklogItemRepository;
 import project.management.domain.model.issue.IssueCounter;
 import project.management.domain.model.issue.IssueRepository;
 import project.management.domain.model.sprint.SprintCounter;
@@ -21,9 +22,7 @@ public class ProjectCodeTest {
 
     @Before
     public void setUp(){
-        IssueRepository issueRepository = new InMemoryIssueRepository();
-        SprintRepository sprintRepository = new InMemorySprintRepository();
-        backlog = new Backlog(issueRepository, sprintRepository);
+        backlog = new Backlog(null, null);
     }
 
     @Test

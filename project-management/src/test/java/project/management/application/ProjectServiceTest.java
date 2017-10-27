@@ -28,9 +28,7 @@ public class ProjectServiceTest {
     public void aServiceWillBeAvailableForAClient(){
         ProjectRepository repo = new InMemoryProjectRepository();
         pService = new ProjectService(repo);
-        IssueRepository issueRepository = new InMemoryIssueRepository();
-        SprintRepository sprintRepository = new InMemorySprintRepository();
-        backlog = new Backlog(issueRepository, sprintRepository);
+        backlog = new Backlog(null, null);
     }
 
     @Test

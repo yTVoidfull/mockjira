@@ -6,11 +6,13 @@ import project.management.domain.model.Project;
 import project.management.domain.model.ProjectCode;
 import project.management.domain.model.ProjectRepository;
 import project.management.domain.model.backlog.Backlog;
+import project.management.domain.model.backlog.BacklogItemRepository;
 import project.management.domain.model.issue.Issue;
 import project.management.domain.model.issue.IssueCounter;
 import project.management.domain.model.issue.IssueRepository;
 import project.management.domain.model.sprint.SprintCounter;
 import project.management.domain.model.sprint.SprintRepository;
+import project.management.infrastructure.persistence.InMemoryBacklogItemRepository;
 import project.management.infrastructure.persistence.InMemoryIssueRepository;
 import project.management.infrastructure.persistence.InMemoryProjectRepository;
 import project.management.infrastructure.persistence.InMemorySprintRepository;
@@ -24,14 +26,16 @@ public class IssueServiceTest {
     IssueRepository issueRepository;
     Backlog backlog;
     IssueService issueService;
+    BacklogItemRepository backlogItemRepository;
 
     @Before
     public void setUp(){
         projectRepository = new InMemoryProjectRepository();
         issueRepository = new InMemoryIssueRepository();
         issueService = new IssueService(projectRepository, issueRepository);
+        backlogItemRepository = new InMemoryBacklogItemRepository();
         SprintRepository sprintRepository = new InMemorySprintRepository();
-        backlog = new Backlog(issueRepository, sprintRepository);
+        backlog = new Backlog(backlogItemRepository, sprintRepository);
     }
 
     @Test

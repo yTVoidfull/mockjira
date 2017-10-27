@@ -30,9 +30,4 @@ public class IssueTest {
     assertThat(i.isOpen()).isEqualTo(false);
   }
 
-  @Test
-  public void exceptionThrownWhenIssueIdIsNull() throws Exception {
-    Throwable throwable = catchThrowable(() -> Issue.of(null));
-    assertThat(throwable).hasMessage("Issue id must not be null");
-  }
 }

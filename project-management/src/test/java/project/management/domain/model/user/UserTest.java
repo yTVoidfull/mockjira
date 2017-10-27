@@ -1,4 +1,4 @@
-package domain.model;
+package project.management.domain.model.user;
 
 import org.junit.Test;
 

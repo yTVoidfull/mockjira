@@ -63,7 +63,6 @@ public class Project {
 
     public Issue openIssue() {
         Issue i = Issue.of(IssueId.of(code, issueCounter.getANewId()));
-        backlog.add(i);
         return i;
     }
 }

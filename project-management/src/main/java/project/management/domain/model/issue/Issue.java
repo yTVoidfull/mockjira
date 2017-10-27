@@ -15,7 +15,6 @@ public class Issue {
   }
 
   public static Issue of(IssueId id){
-    assertNotNull(id, "Issue id must not be null");
     return new Issue(id);
   }
 

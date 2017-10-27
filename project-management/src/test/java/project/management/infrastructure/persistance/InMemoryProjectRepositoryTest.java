@@ -26,9 +26,7 @@ public class InMemoryProjectRepositoryTest {
     @Before
     public void setUp(){
         repo = new InMemoryProjectRepository();
-        IssueRepository issueRepository = new InMemoryIssueRepository();
-        SprintRepository sprintRepository = new InMemorySprintRepository();
-        backlog = new Backlog(issueRepository, sprintRepository);
+        backlog = new Backlog(null, null);
     }
 
     @Test
