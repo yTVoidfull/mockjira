@@ -2,8 +2,6 @@ package project.management.domain.model.issue;
 
 import java.util.Objects;
 
-import static commons.InputAssertion.assertNotNull;
-
 public class Issue {
 
   private IssueId id;
@@ -38,6 +36,10 @@ public class Issue {
 
   public IssueStatus getStatus() {
     return status;
+  }
+
+  public void changeStatus(IssueStatusModifier modifier){
+    this.status = modifier.invokeOn(this.status);
   }
 
 }

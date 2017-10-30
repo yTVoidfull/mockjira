@@ -16,7 +16,7 @@ public class IssueId {
     }
 
     public static IssueId of(ProjectCode projectCode, int id) {
-        assertNotNull(projectCode, "OpenProject code must not be null");
+        assertNotNull(projectCode, "Project code must not be null");
         return new IssueId(String.format(FOMAT, projectCode, id));
     }
 

@@ -13,6 +13,8 @@ import project.management.domain.model.issue.IssueCounter;
 import project.management.domain.model.issue.IssueRepository;
 import project.management.domain.model.sprint.SprintCounter;
 import project.management.domain.model.sprint.SprintRepository;
+import project.management.domain.services.issue.ReviewToDevelopment;
+import project.management.domain.services.issue.OpenToReview;
 import project.management.infrastructure.persistence.InMemoryBacklogItemRepository;
 import project.management.infrastructure.persistence.InMemoryIssueRepository;
 import project.management.infrastructure.persistence.InMemoryProjectRepository;
@@ -69,5 +71,16 @@ public class IssueServiceTest {
     public void exceptionThrownWhenOpeningIssueForInexistentProject() throws Exception {
         Throwable exception = catchThrowable(() -> issueService.openFor(new ProjectCode("codeAB123")));
         assertThat(exception).hasMessage("Issues must be created for existing projects");
+    }
+
+    @Test
+    public void moveIssueFromInReviewToInDevelopment() throws Exception {
+        ProjectCode projectCode = new ProjectCode("codeAB123");
+        OpenProject p1 = new OpenProject(projectCode,backlog, new IssueCounter(), new SprintCounter());
+        projectRepository.add(p1);
+        Issue i1 = issueService.openFor(projectCode);
+        i1.changeStatus(new OpenToReview());
+        i1.changeStatus(new ReviewToDevelopment());
+        assertThat(i1.getStatus()).isEqualTo(IssueStatus.IN_DEVELOPMENT);
     }
 }
