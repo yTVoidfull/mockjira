@@ -1,10 +1,9 @@
 package project.management.domain.model.sprint;
 
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 import project.management.domain.model.issue.Issue;
 import org.junit.Test;
 import project.management.domain.model.issue.IssueId;
-import project.management.domain.model.sprint.Sprint;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

@@ -2,9 +2,10 @@ package project.management.application;
 
 import org.junit.Before;
 import org.junit.Test;
-import project.management.domain.model.Project;
-import project.management.domain.model.ProjectCode;
-import project.management.domain.model.ProjectRepository;
+import project.management.domain.model.issue.IssueStatus;
+import project.management.domain.model.project.OpenProject;
+import project.management.domain.model.project.ProjectCode;
+import project.management.domain.model.project.ProjectRepository;
 import project.management.domain.model.backlog.Backlog;
 import project.management.domain.model.backlog.BacklogItemRepository;
 import project.management.domain.model.issue.Issue;
@@ -41,14 +42,14 @@ public class IssueServiceTest {
     @Test
     public void canOpenAnIssue() throws Exception {
         ProjectCode projectCode = new ProjectCode("abcdef123");
-        projectRepository.add(new Project(projectCode,backlog, new IssueCounter(), new SprintCounter()));
-        assertThat(issueService.openFor(projectCode).isOpen()).isEqualTo(true);
+        projectRepository.add(new OpenProject(projectCode,backlog, new IssueCounter(), new SprintCounter()));
+        assertThat(issueService.openFor(projectCode).getStatus()).isEqualTo(IssueStatus.OPEN);
     }
 
     @Test
     public void issueIdIsIncrementedInDifferentProjects() throws Exception {
         ProjectCode projectCode = new ProjectCode("codeAB123");
-        Project p1 = new Project(projectCode,backlog, new IssueCounter(), new SprintCounter());
+        OpenProject p1 = new OpenProject(projectCode,backlog, new IssueCounter(), new SprintCounter());
         projectRepository.add(p1);
         Issue i = issueService.openFor(projectCode);
         Issue i1 = issueService.openFor(projectCode);
@@ -56,7 +57,7 @@ public class IssueServiceTest {
         assertThat(i1.getId().getId()).isEqualTo(projectCode+"-2");
 
         ProjectCode otherProjectCode = new ProjectCode("codeBC123");
-        Project p2 = new Project(otherProjectCode, backlog, new IssueCounter(), new SprintCounter());
+        OpenProject p2 = new OpenProject(otherProjectCode, backlog, new IssueCounter(), new SprintCounter());
         projectRepository.add(p2);
         Issue i3 = issueService.openFor(otherProjectCode);
         Issue i4 = issueService.openFor(otherProjectCode);

@@ -2,11 +2,9 @@ package project.management.domain.model.issue;
 
 import org.junit.Before;
 import org.junit.Test;
-import project.management.domain.model.ProjectCode;
-import project.management.domain.model.issue.Issue;
+import project.management.domain.model.project.ProjectCode;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 public class IssueTest {
 
@@ -20,14 +18,7 @@ public class IssueTest {
   @Test
   public void issueCreatedIsOpen() throws Exception {
     Issue i = Issue.of(IssueId.of(projectCode, 1));
-    assertThat(i.isOpen()).isEqualTo(true);
-  }
-
-  @Test
-  public void canBeClosed() throws Exception {
-    Issue i = Issue.of(IssueId.of(projectCode, 1));
-    i.close();
-    assertThat(i.isOpen()).isEqualTo(false);
+    assertThat(i.getStatus()).isEqualTo(IssueStatus.OPEN);
   }
 
 }

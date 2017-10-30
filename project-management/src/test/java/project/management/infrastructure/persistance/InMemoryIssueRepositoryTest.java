@@ -1,6 +1,6 @@
 package project.management.infrastructure.persistance;
 
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 import project.management.domain.model.issue.Issue;
 import project.management.domain.model.issue.IssueId;
 import project.management.infrastructure.persistence.InMemoryIssueRepository;

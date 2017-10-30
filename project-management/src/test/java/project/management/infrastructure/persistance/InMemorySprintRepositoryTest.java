@@ -2,7 +2,7 @@ package project.management.infrastructure.persistance;
 
 import org.junit.Before;
 import org.junit.Test;
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 import project.management.domain.model.sprint.Sprint;
 import project.management.domain.model.sprint.SprintId;
 import project.management.domain.model.sprint.SprintRepository;

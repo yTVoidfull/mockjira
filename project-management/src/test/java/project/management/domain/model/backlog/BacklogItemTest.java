@@ -1,7 +1,7 @@
 package project.management.domain.model.backlog;
 
 import org.junit.Test;
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 import project.management.domain.model.issue.IssueId;
 import project.management.domain.model.user.Username;
 

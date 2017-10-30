@@ -1,6 +1,6 @@
 package project.management.domain.model.sprint;
 
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 
 import java.util.Objects;
 
@@ -13,7 +13,7 @@ public class SprintId {
   private int id;
 
   public SprintId(ProjectCode projectCode, int id) {
-    assertNotNull(projectCode, "Project code must not be null");
+    assertNotNull(projectCode, "OpenProject code must not be null");
     this.projectCode = projectCode;
     this.id = id;
   }

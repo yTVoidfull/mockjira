@@ -1,4 +1,4 @@
-package project.management.domain.model;
+package project.management.domain.model.project;
 
 import java.util.Objects;
 

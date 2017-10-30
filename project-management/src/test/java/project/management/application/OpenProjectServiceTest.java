@@ -1,18 +1,14 @@
 package project.management.application;
 
 import project.management.domain.model.backlog.Backlog;
-import project.management.domain.model.issue.IssueRepository;
-import project.management.domain.model.sprint.SprintRepository;
-import project.management.infrastructure.persistence.InMemoryIssueRepository;
+import project.management.domain.model.project.ClosedProject;
 import project.management.infrastructure.persistence.InMemoryProjectRepository;
-import project.management.domain.model.Project;
-import project.management.domain.model.ProjectCode;
-import project.management.domain.model.ProjectRepository;
-import project.management.infrastructure.persistence.InMemorySprintRepository;
+import project.management.domain.model.project.OpenProject;
+import project.management.domain.model.project.ProjectCode;
+import project.management.domain.model.project.ProjectRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
-import project.management.application.ProjectService;
 
 import java.util.Optional;
 
@@ -20,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
 
-public class ProjectServiceTest {
+public class OpenProjectServiceTest {
     private ProjectService pService;
     private Backlog backlog;
 
@@ -34,8 +30,8 @@ public class ProjectServiceTest {
     @Test
     public void canCreateANewProject() throws Exception {
         ProjectCode pCode = new ProjectCode("abcdEF123");
-        Project p = pService.create(pCode, backlog);
-        Assertions.assertThat(p.getCode()).isEqualTo(pCode);
+        OpenProject p = pService.create(pCode, backlog);
+        Assertions.assertThat(p.getProjectCode()).isEqualTo(pCode);
     }
 
     @Test
@@ -43,7 +39,7 @@ public class ProjectServiceTest {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         ProjectCode pCode1 = new ProjectCode("abcdBD123");
         pService.create(pCode, backlog);
-        Project p1 = pService.create(pCode1, backlog);
+        OpenProject p1 = pService.create(pCode1, backlog);
         Assertions.assertThat(pService.get(pCode1)).isEqualTo(Optional.of(p1));
     }
 
@@ -58,8 +54,8 @@ public class ProjectServiceTest {
     public void aProjectCanBeClosed() throws Exception {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         pService.create(pCode, backlog);
-        pService.close(pCode);
-        Assertions.assertThat(((Project)pService.get(pCode).get()).isOpen()).isEqualTo(false);
+        ClosedProject closedProject = pService.close(pCode);
+        Assertions.assertThat(closedProject.getProjectCode()).isEqualTo(pCode);
     }
 
     @Test
@@ -67,7 +63,7 @@ public class ProjectServiceTest {
         ProjectCode pCode = new ProjectCode("abcdEF123");
         pService.create(pCode, backlog);
         Throwable illegalArgument = catchThrowable(() -> pService.create(pCode, backlog));
-        assertThat(illegalArgument).hasMessage("Project with this code already exists");
+        assertThat(illegalArgument).hasMessage("OpenProject with this code already exists");
     }
 
     @Test

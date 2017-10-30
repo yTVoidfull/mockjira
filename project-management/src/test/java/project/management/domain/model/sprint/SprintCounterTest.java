@@ -13,4 +13,13 @@ public class SprintCounterTest {
     assertThat(counter.getNewId()).isEqualTo(1);
     assertThat(counter.getNewId()).isEqualTo(2);
   }
+
+  @Test
+  public void counterCanBeSetBackOneUnit() throws Exception {
+    SprintCounter counter = new SprintCounter();
+    assertThat(counter.getNewId()).isEqualTo(1);
+    assertThat(counter.getNewId()).isEqualTo(2);
+    counter.decrease();
+    assertThat(counter.getNewId()).isEqualTo(2);
+  }
 }

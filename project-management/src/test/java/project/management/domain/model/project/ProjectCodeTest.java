@@ -1,15 +1,10 @@
-package project.management.domain.model;
+package project.management.domain.model.project;
 
-import project.management.domain.model.Project;
-import project.management.domain.model.ProjectCode;
 import project.management.domain.model.backlog.Backlog;
-import project.management.domain.model.backlog.BacklogItemRepository;
 import project.management.domain.model.issue.IssueCounter;
-import project.management.domain.model.issue.IssueRepository;
+import project.management.domain.model.project.OpenProject;
+import project.management.domain.model.project.ProjectCode;
 import project.management.domain.model.sprint.SprintCounter;
-import project.management.domain.model.sprint.SprintRepository;
-import project.management.infrastructure.persistence.InMemoryIssueRepository;
-import project.management.infrastructure.persistence.InMemorySprintRepository;
 import org.junit.Before;
 import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -34,7 +29,7 @@ public class ProjectCodeTest {
     @Test
     public void exceptionThrownWhenCodeIsLongerThanNineCharacters() throws Exception {
         String tenCharacterId = "codeAB1234";
-        Throwable codeNullException = catchThrowable(() -> new Project(new ProjectCode(tenCharacterId), backlog, new IssueCounter(), new SprintCounter()));
+        Throwable codeNullException = catchThrowable(() -> new OpenProject(new ProjectCode(tenCharacterId), backlog, new IssueCounter(), new SprintCounter()));
         assertThat(codeNullException).hasMessage("Code must be 6 letters and 3 digits");
     }
 

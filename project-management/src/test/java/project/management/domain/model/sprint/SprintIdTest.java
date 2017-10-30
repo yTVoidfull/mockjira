@@ -2,7 +2,7 @@ package project.management.domain.model.sprint;
 
 import org.junit.Before;
 import org.junit.Test;
-import project.management.domain.model.ProjectCode;
+import project.management.domain.model.project.ProjectCode;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 

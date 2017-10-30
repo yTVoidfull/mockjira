@@ -10,4 +10,8 @@ public class SprintCounter {
   public int getNewId() {
     return counter++;
   }
+
+  public void decrease() {
+    counter --;
+  }
 }

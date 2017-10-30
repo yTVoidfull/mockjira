@@ -7,11 +7,11 @@ import static commons.InputAssertion.assertNotNull;
 public class Issue {
 
   private IssueId id;
-  boolean isOpen;
+  private IssueStatus status;
 
   private Issue(IssueId id) {
     this.id = id;
-    this.isOpen = true;
+    status = IssueStatus.OPEN;
   }
 
   public static Issue of(IssueId id){
@@ -22,25 +22,22 @@ public class Issue {
     return id;
   }
 
-  public boolean isOpen() {
-    return isOpen;
-  }
-
-  public void close() {
-    isOpen = false;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (!(o instanceof Issue)) return false;
-    Issue that = (Issue) o;
-    return isOpen == that.isOpen &&
-        Objects.equals(id, that.id);
+    Issue issue = (Issue) o;
+    return Objects.equals(id, issue.id) &&
+        status == issue.status;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, isOpen);
+    return Objects.hash(id, status);
   }
+
+  public IssueStatus getStatus() {
+    return status;
+  }
+
 }
